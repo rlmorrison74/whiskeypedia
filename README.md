@@ -67,31 +67,33 @@ _MVP for this project is full CRUD on both front and back end with a minimum of 
 
 #### Wireframes
 
-> Use the Wireframes section to display desktop, tablet and mobile views. No hand-drawn wireframes. Use a tool like wireframe.cc, Whimsical or AdobeXD
+![Home](https://github.com/rlmorrison74/whiskeypedia/blob/main/assets/mockups/home.png)
 
-![Dummy Link](url)
+- Home Page
 
-- Desktop Landing
+![Posts.jsx](https://github.com/rlmorrison74/whiskeypedia/blob/main/assets/mockups/posts.png)
 
-![Dummy Link](url)
+- Posts Page
 
-- Desktop Hero
+![PostDetail.jsx](https://github.com/rlmorrison74/whiskeypedia/blob/main/assets/mockups/post_detail.png)
 
-![Dummy Link](url)
+- Post Detail Page
 
-- Resource Index
+![PostCreate.jsx](https://github.com/rlmorrison74/whiskeypedia/blob/main/assets/mockups/create_post.png)
 
-![Dummy Link](url)
+- Post Create/Edit Form
 
-- Resource Show
+![Register.jsx](https://github.com/rlmorrison74/whiskeypedia/blob/main/assets/mockups/sign_up.png)
 
-![Dummy Link](url)
+- Register Form
 
-- Tablet Resource Index
+![About.jsx](https://github.com/rlmorrison74/whiskeypedia/blob/main/assets/mockups/about.png)
 
-![Dummy Link](url)
+- About Page
 
-- Mobile Resource Index
+![Contact.jsx](https://github.com/rlmorrison74/whiskeypedia/blob/main/assets/mockups/contact.png)
+
+- Contact Page
 
 #### Component Tree
 
