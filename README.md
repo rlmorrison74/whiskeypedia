@@ -67,6 +67,8 @@ _MVP for this project is full CRUD on both front and back end with a minimum of 
 
 #### Wireframes
 
+## Here is the link to the full figma to explore: https://www.figma.com/file/rBj2Zgrj3E0U25hDQ5CR5t/Whiskeypedia?node-id=0%3A1
+
 ![Home](https://github.com/rlmorrison74/whiskeypedia/blob/main/assets/mockups/home.png)
 
 - Home Page
