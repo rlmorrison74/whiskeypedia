@@ -11,32 +11,64 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   def show
-    render json: @post
+    @user = @post.user_id
+    render json: {
+      post: @post,
+      username: @user.username
+    }
   end
 
   # POST /posts
   def create
     @post = Post.new(post_params)
-
+    @post.user = @current_user
     if @post.save
-      render json: @post, status: :created, location: @post
+      render json: @post, status: :created
     else
-      render json: @post.errors, status: :unprocessable_entity
+      render json: {
+        error: @post.errors,
+        status: :unprocessable_entity,
+        message: 'Authentication failed'
+      }
     end
   end
 
   # PATCH/PUT /posts/1
   def update
-    if @post.update(post_params)
+    if @payload[:id] == @post.user_id && post.update(post_params)
       render json: @post
+    elsif @payload[:id] != @post.user_id
+      render json: {
+        error: @post.errors,
+        status: :unauthorized,
+        message: "Not your post, don't touch it"
+      }
     else
-      render json: @post.errors, status: :unprocessable_entity
+      render json: {
+        error: @post.errors,
+        status: :unprocessable_entity,
+        message: 'Submission does not meet database standards'
+      }
     end
   end
 
   # DELETE /posts/1
   def destroy
-    @post.destroy
+    if @payload[:id] == @post.user_id
+      @post.destroy
+      render json: { message: 'Post Deleted' }
+    elsif @payload[:id] != @post.user_id
+      render json: {
+        status: :unauthorized,
+        message: "Not your post, don't touch it"
+      }
+    else
+      render json: @post.errors
+    end
+  end
+
+  def user_posts
+    posts = Post.where(user_id == params[:id])
   end
 
   private
