@@ -28,31 +28,38 @@ _**Whiskeypedia** is a blog app for whiskey and bourbon enthusiasts to discuss t
 
 > 
 
-_The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dapibus fermentum risus vitae bibendum. Integer vel ipsum mollis odio sollicitudin ornare eu vel ex. In quis fringilla velit, ac maximus quam. Etiam eget placerat neque. Aenean faucibus sem non nisi lobortis ullamcorper._
+_MVP for this project is full CRUD on both front and back end with a minimum of 3 tables on the back end._
 
 <br>
 
 ### Goals
 
-- _Lorem ipsum, dolor sit amet,_
-- _consectetur adipiscing elit._
-- _Phasellus dapibus fermentum risus vitae bibendum._
-- _Integer vel ipsum mollis odio sollicitudin ornare eu vel ex._
-- _etc._
+- _Meet all of my styling expectations set in my Figmas_
+- _Develop a clean user interface for comments and subcomments_
+- _Grow as a developer during this project_
+- _Use a modal somewhere in my project_
+- _Use CSS animations to create an attractive user experience_
 
 <br>
 
 ### Libraries and Dependencies
 
-> Use this section to list all supporting libraries and dependencies, and their role in the project. Below is an example - this needs to be replaced!
 
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
-|      React       | _Lorem ipsum dolor sit amet, consectetur._ |
-|   React Router   | _Lorem ipsum dolor sit amet, consectetur._ |
-| React SemanticUI | _Lorem ipsum dolor sit amet, consectetur._ |
-|     Express      | _Lorem ipsum dolor sit amet, consectetur._ |
-|  Express Router  | _Lorem ipsum dolor sit amet, consectetur._ |
+|      React       | _React is a declarative, efficient, and flexible JavaScript library for building user interfaces._ |
+|   React Router   | _A standard library for routing in React._ |
+|  Ruby on Rails| _An open source framework for Web development in Ruby._ |
+|          Material UI | _A library that allows us to import and use different components to create a user interface in React applications._ |
+|   React Router DOM| _Enables you to implement dynamic routing in a web app._ |
+| Axios  | _A promise-based HTTP Client for node.js and the browser._ |
+|  Bcrypt | _The bcrypt hashing function allows us to build a password security platform that scales with computation power and always hashes every password with a salt._ |
+|   JWT| _A pure ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard._ |
+|   CORS| _The CORS spec allows web applications to make cross domain AJAX calls without using workarounds such as JSONP._ |
+|  ActiveRecord | _Active Record facilitates the creation and use of business objects whose data requires persistent storage to a database._ |
+|   PostegresSQL| _A powerful, open source object-relational database system._ |
+| Cloudinary  | _Cloudinary's cloud-based servers automate image uploading, resizing, cropping, optimizing, sprite generation and more._ |
+
 
 <br>
 
@@ -88,39 +95,67 @@ _The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing el
 
 #### Component Tree
 
-> Use this section to display the structure of how your React components are being rendered. This should show the parent to child relation between you components. In other words, show which components are rendering the other components. Include a link to your component tree
-
-[Component Tree Sample](https://gist.git.generalassemb.ly/davidtwhitlatch/414107e2560ae0bb65e233570f2fe056#file-component-tree-png)
+![Component Tree ](https://cdn.discordapp.com/attachments/283876599626072064/905108967313768478/unknown.png)
 
 #### Component Architecture
-
-> Use this section to define your React components and the data architecture of your app. This should be a reflection of how you expect your directory/file tree to look like. 
 
 ``` structure
 
 src
 |__ assets/
-      |__ fonts
-      |__ graphics
       |__ images
       |__ mockups
 |__ components/
       |__ Header.jsx
+      |__ Footer.jsx
+      |__ Comment.jsx
 |__ services/
+      |__ api-config.js
+      |__ auth.js
+      |__ posts.js
+      |__ comments.js
+      |__ users.js
+|__layouts/
+      |__ Layout.jsx
+|__screens/
+      |__ Home.jsx
+      |__ About.jsx
+      |__ Contact.jsx
+      |__ Register.jsx
+      |__ Login.jsx
+      |__ Posts.jsx
+      |__ PostDetail.jsx
+      |__ PostEdit.jsx
+      |__ PostCreate.jsx
+|__containers/
+      |__ MainContainer.jsx
+      |__ PostContainer.jsx
 
 ```
 
 #### Time Estimates
 
-> Use this section to estimate the time necessary to build out each of the components you've described above.
-
-| Task                | Priority | Estimated Time | Time Invested | Actual Time |
-| ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Add Contact Form    |    L     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| TOTAL               |          |     6 hrs      |     3 hrs     |     TBD     |
-
-> _Why is this necessary? Time frames are key to the development cycle. You have limited time to code your app, and your estimates can then be used to evaluate possibilities of your MVP and post-MVP based on time needed. It's best you assume an additional hour for each component, as well as a few hours added to the total time, to play it safe._
+| Task                | Priority | Estimated Time | Actual Time |
+| ------------------- | :------: | :------------: | :-----------: | 
+| Lay out state in app.js for child components   |    H     |     3 hrs      |          |   
+| Set up layout |    H     |     1 hr      |     1 hrs     |    
+| Build login/register forms |    H     |     3 hrs      |          |     
+| Build contact form |    L     |     3 hrs      |          |     
+| Build about screen |    L     |     1 hr     |          |     
+| Build home screen |    L     |     2 hrs      |          |     
+| Set up MainContainer.jsx state |    H     |     2 hrs      |          |     
+| Build Edit |    H     |     3 hrs      |          |     
+| Build Create |    H     |     3 hrs      |          |     
+| Build PostDetail |    H     |     3 hrs      |          |     
+| Build Posts |    H     |     3 hrs      |          |     
+| Build back end database |    H     |     3 hrs      |          |     
+| Set up back end full CRUD |    H     |     3 hrs      |          |     
+| Build Comment functionality |    H     |     5 hrs      |          |
+| Set up services folder |    H     |     1 hr      |          |
+| Basic Styling of all screens |    H     |     15 hrs      |          |
+| Polishing up styling |    H     |     6 hrs      |          |
+| CSS Animations |    M     |     6 hrs      |          |
+| TOTAL               |          |     66 hrs      |          |     
 
 <br>
 
@@ -128,16 +163,17 @@ src
 
 #### ERD Model
 
-> Use this section to display an image of a computer generated ERD model. You can use draw.io, Lucidchart or another ERD tool.
 
-[ERD Sample](https://drive.google.com/file/d/1kLyQTZqfcA4jjKWQexfEkG2UspyclK8Q/view)
+![ERD](https://cdn.discordapp.com/attachments/283876599626072064/904404172907118632/unknown.png)
 <br>
 
 ***
 
 ## Post-MVP
 
-> Use this section to document ideas you've had that would be fun (or necessary) for your Post-MVP. This will be helpful when you return to your project after graduation!
+-_CSS animations on the landing page_
+-_Subcomments_
+-_Implement a rich text editor_
 
 ***
 
