@@ -140,7 +140,7 @@ src
 | Task                | Priority | Estimated Time | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | 
 | Lay out state in app.js for child components   |    H     |     3 hrs      |          |   
-| Set up layout |    H     |     1 hr      |     1 hrs     |    
+| Set up layout |    H     |     1 hr      |          |    
 | Build login/register forms |    H     |     3 hrs      |          |     
 | Build contact form |    L     |     3 hrs      |          |     
 | Build about screen |    L     |     1 hr     |          |     
@@ -174,7 +174,9 @@ src
 ## Post-MVP
 
 -_CSS animations on the landing page_
+
 -_Subcomments_
+
 -_Implement a rich text editor_
 
 ***
