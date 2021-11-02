@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  
+  before_action :authorize_request, except: :create
+
   # POST /users
   def create
     @user = User.new(user_params)
@@ -17,8 +18,8 @@ class UsersController < ApplicationController
 
   private
 
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.require(:user).permit(:username, :email, :password)
-    end
+  # Only allow a list of trusted parameters through.
+  def user_params
+    params.require(:user).permit(:username, :email, :password)
+  end
 end
