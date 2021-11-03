@@ -1,7 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+import { useState, useEffect } from "react";
+import { Switch, Route, useHistory } from "react-router-dom";
+
+import Layout from "./layouts/Layout";
+import Login from "./screens/Login";
+
+import {
+  loginUser,
+  registerUser,
+  removeToken,
+  verifyUser,
+} from "./services/auth";
+import Register from './screens/Register'
+import MainContainer from './containers/MainContainer'
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(null)
+  const history = useHistory()
   return (
     <div className="App">
       <header className="App-header">
