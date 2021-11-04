@@ -24,7 +24,10 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = @current_user
     if @post.save
-      render json: @post, status: :created
+      render json: @posts, include: [
+        user: { only: ['username'] },
+        comments: { only: ['id'] }
+      ]
     else
       render json: {
         error: @post.errors,
@@ -37,7 +40,10 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   def update
     if @payload[:id] == @post.user_id && @post.update(post_params)
-      render json: @post
+      render json: @posts, include: [
+        user: { only: ['username'] },
+        comments: { only: ['id'] }
+      ]
     elsif @payload[:id] != @post.user_id
       render json: {
         error: @post.errors,
@@ -68,9 +74,9 @@ class PostsController < ApplicationController
     end
   end
 
-  def user_posts
-    posts = Post.where(user_id == params[:id])
-  end
+  # def user_posts
+  #   posts = Post.where(user_id == params[:id])
+  # end
 
   private
 
