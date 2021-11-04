@@ -60,10 +60,10 @@ export default function MainContainer() {
         <PostCreate handlePostCreate={handlePostCreate} />
       </Route>
       <Route path="/posts/:id">
-        <PostDetail posts={posts} />
+        <PostDetail posts={posts} handlePostDelete={handlePostDelete} />
       </Route>
       <Route path="/posts">
-        <Posts posts={posts} handlePostDelete={handlePostDelete} />
+        <Posts posts={posts} />
       </Route>
       <Route path="/">
         <Home />
