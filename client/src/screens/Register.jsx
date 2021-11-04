@@ -39,7 +39,6 @@ export default function Register({ handleRegister }) {
       <TextField
         id="email"
         type="text"
-        autoFocus
         label="Email Address"
         value={email}
         name="email"
@@ -49,7 +48,6 @@ export default function Register({ handleRegister }) {
       <TextField
         id="password"
         type="password"
-        autoFocus
         label="Password"
         value={password}
         name="password"
@@ -57,7 +55,6 @@ export default function Register({ handleRegister }) {
       />
       <br />
           <Button type="submit" children="Submit" variant="contained"  />
-          {/* <button>Submit</button> */}
     </form>
   );
 }
