@@ -31,23 +31,40 @@ export default function MainContainer() {
     };
     fetchPosts();
   }, []);
-  
+
   const handlePostCreate = async (formData) => {
     const newPost = await createPost(formData);
     setPosts((prevState) => [...prevState, newPost]);
     history.push("/posts");
   };
-  
+
   const handlePostUpdate = async (id, formData) => {
-    const newPost = await updatePost(id, formData)
+    const newPost = await updatePost(id, formData);
     setPosts((prevState) => {
-      prevState.map((post) => {
-        return post.id === Number(id) ? newPost : post
-      })
-    })
-    history.push('/posts')
-  }
-  
-  const handlePostDelete = async (id)
-  
+      prevState.map((post) => (post.id === Number(id) ? newPost : post));
+    });
+    history.push("/posts");
+  };
+
+  const handlePostDelete = async (id) => {
+    await deletePost(id);
+    setPosts((prevState) => prevState.filter((post) => post.id !== id));
+  };
+
+  return (
+    <Switch>
+      <Route path="/posts/:id/edit">
+        <PostEdit posts={posts} handlePostUpdate={handlePostUpdate} />
+      </Route>
+      <Route path="/posts/new">
+        <PostCreate handlePostCreate={handlePostCreate} />
+      </Route>
+      <Route path="/posts/:id">
+        <PostDetail posts={posts} />
+      </Route>
+      <Route path="/posts">
+        <Posts posts={posts} handlePostDelete={handlePostDelete} />
+      </Route>
+    </Switch>
+  );
 }
