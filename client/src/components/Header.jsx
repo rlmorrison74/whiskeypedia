@@ -18,6 +18,7 @@ export default function Header({ currentUser, handleLogout }) {
       }
     };
     image();
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -37,6 +38,7 @@ export default function Header({ currentUser, handleLogout }) {
       }
     };
     title();
+    // eslint-disable-next-line
   }, []);
 
   const setP = () => {
@@ -52,7 +54,7 @@ export default function Header({ currentUser, handleLogout }) {
 
   return (
     <div>
-          <img src={headerImage} alt="whiskey glass" />
+      <img src={headerImage} alt="whiskey glass" />
       <div className="userStatus">
         {currentUser ? (
           <div>
