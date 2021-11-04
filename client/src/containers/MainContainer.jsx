@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 
-import {
-  deleteComment,
-  createComment,
-  updateComment,
-} from "../services/comments";
+// import {
+//   deleteComment,
+//   createComment,
+//   updateComment,
+// } from "../services/comments";
 
 import {
   getAllPosts,
-  getOnePost,
   updatePost,
   createPost,
   deletePost,
@@ -19,6 +18,7 @@ import Posts from "../screens/Posts";
 import PostCreate from "../screens/PostCreate";
 import PostEdit from "../screens/PostEdit";
 import PostDetail from "../screens/PostDetail";
+import Home from "../screens/Home";
 
 export default function MainContainer() {
   const [posts, setPosts] = useState([]);
@@ -64,6 +64,9 @@ export default function MainContainer() {
       </Route>
       <Route path="/posts">
         <Posts posts={posts} handlePostDelete={handlePostDelete} />
+      </Route>
+      <Route path="/">
+        <Home />
       </Route>
     </Switch>
   );
