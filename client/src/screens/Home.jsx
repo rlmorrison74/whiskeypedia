@@ -1,3 +1,12 @@
+import whiskeyarticleimage from '../assets/images/whiskeyarticleimage.jpg'
+import malting from '../assets/images/malting.jpg'
+import mashing from '../assets/images/mashing.jpg'
+import fermentation from '../assets/images/fermentation.jpg'
+import distillation from '../assets/images/distillation.png'
+import distillation2 from '../assets/images/distillation2.jpg'
+import aging from '../assets/images/aging.jpg'
+import bottling from '../assets/images/bottling.jpg'
+
 export default function Home() {
   return (
     <div>
@@ -9,7 +18,7 @@ export default function Home() {
           at how whiskey is made.{" "}
         </p>
         <img
-          src="../assets/images/whiskeyarticleimage.jpg"
+          src={whiskeyarticleimage}
           alt="whiskey in decanter"
         />
       </div>
@@ -21,7 +30,7 @@ export default function Home() {
           drying again. The malting process is different for different types of
           whiskey, but most American whiskey typically uses rye and corn.
         </p>
-        <img src="../assets/images/malting.jpg" alt="malting" />
+        <img src={malting} alt="malting" />
       </div>
       <div className="mashing">
         <h2>Mashing</h2>
@@ -31,7 +40,7 @@ export default function Home() {
           which creates a porridge-like substance, referred to as mash. Once all
           the sugar has been extracted, the mash can be moved to the next stage.
         </p>
-        <img src="../assets/images/mashing.jpg" alt="mashing"/>
+        <img src={mashing} alt="mashing"/>
       </div>
       <div className="fermentation">
         <h2>Fermentation</h2>
@@ -40,7 +49,7 @@ export default function Home() {
           feeds on the sugars in the mash, converting the sugar into alcohol.
           This usually takes a few days, give or take.{" "}
         </p>
-        <img src="../assets/images/fermentation.jpg" alt="fermentation" />
+        <img src={fermentation} alt="fermentation" />
       </div>
       <div className="distillation">
         <h2>Distillation</h2>
@@ -56,8 +65,8 @@ export default function Home() {
           heavier things (that are not alcohol) behind, leaving more pure
           alcohol behind. This is how we achieve a higher proof whiskey.
         </p>
-        <img src="../assets/images/distillation.png" alt="drawing of still" />
-        <img src="../assets/images/distillation2.jpg" alt="still" />
+        <img src={distillation} alt="drawing of still" />
+        <img src={distillation2} alt="still" />
       </div>
       <div className="aging">
         <h2>Aging</h2>
@@ -69,7 +78,7 @@ export default function Home() {
           requirements that go into classifying what type of whiskey you’re
           producing, but these are the barebones basics.
         </p>
-        <img src="../assets/images/aging.jpg" alt="aging whiskey" />
+        <img src={aging} alt="aging whiskey" />
       </div>
       <div className="bottling">
         <h2>Bottling</h2>
@@ -78,7 +87,7 @@ export default function Home() {
           proof), it’s ready to be bottled. Often the whiskey will also be
           filtered as it’s bottled, to prevent clouding and debris.
         </p>
-        <img src="../assets/images/bottling.jpg" alt="bottling" />
+        <img src={bottling} alt="bottling" />
       </div>
     </div>
   );

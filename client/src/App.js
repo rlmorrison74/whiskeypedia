@@ -49,13 +49,13 @@ function App() {
     <div className="App">
       <Layout currentUser={currentUser} handleLogout={handleLogout}>
         <Switch>
-          <Route path='/login'>
+          <Route path="/login">
             <Login handleLogin={handleLogin} />
           </Route>
-          <Route path='/register'>
+          <Route path="/register">
             <Register handleRegister={handleRegister} />
           </Route>
-          <Route path='/'>
+          <Route path="/">
             <MainContainer />
           </Route>
         </Switch>
