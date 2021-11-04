@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getOnePost } from "../services/posts";
-import edit from "../assets/svg/edit-solid.svg";
 import "../styles/Screens/PostDetail.css";
 
 export default function PostDetail({ handlePostDelete }) {
@@ -30,14 +29,15 @@ export default function PostDetail({ handlePostDelete }) {
             </li>
           );
         })}
-      </ul>
+          </ul>
+          <Link to={`/posts/${id}/edit`}>
       <div className="editicon">
         <svg
           aria-hidden="true"
           focusable="false"
           data-prefix="fas"
           data-icon="edit"
-          class="svg-inline--fa fa-edit fa-w-18"
+          className="svg-inline--fa fa-edit fa-w-18"
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 576 512"
@@ -48,13 +48,15 @@ export default function PostDetail({ handlePostDelete }) {
           ></path>
         </svg>
       </div>
-      <div className="deleteicon">
+          </Link>
+          
+      <div className="deleteicon" onClick={()=>handlePostDelete(post.id)}>
         <svg
           aria-hidden="true"
           focusable="false"
           data-prefix="fas"
           data-icon="trash-alt"
-          class="svg-inline--fa fa-trash-alt fa-w-14"
+          className="svg-inline--fa fa-trash-alt fa-w-14"
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
