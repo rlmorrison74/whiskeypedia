@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Nav from "../components/Nav";
 
 export default function Layout({ children, currentUser, handleLogout }) {
   return (
@@ -14,6 +15,7 @@ export default function Layout({ children, currentUser, handleLogout }) {
           <Link to="/login">Login/Register</Link>
         )}
       </header>
+      <Nav />
           {children}
     </div>
   );

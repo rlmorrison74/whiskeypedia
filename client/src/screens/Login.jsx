@@ -44,6 +44,10 @@ export default function Login({ handleLogin }) {
       />
       <br />
       <Button type="submit" children="Submit" variant="contained" />
+      <p>
+        {" "}
+        Don't have an account? Create one <Link to="/register">here</Link>.
+      </p>
     </form>
   );
 }
