@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import landingHeader from "../assets/images/whiskeybackground1.jpg";
 import otherHeader from "../assets/images/whiskeybackground2.jpg";
 
-export default function Header({currentUser, handleLogout}) {
+export default function Header({ currentUser, handleLogout }) {
   let location = useLocation();
   const [headerImage, setHeaderImage] = useState("");
   const [pageTitle, setPageTitle] = useState("");
@@ -36,11 +36,25 @@ export default function Header({currentUser, handleLogout}) {
         setPageTitle("Forum");
       }
     };
-      title()
+    title();
   }, []);
 
-    return <div>
-      {currentUser ? (
+  const setP = () => {
+    if (location.pathname === "/") {
+      return (
+        <p>
+          If you're here because you love to sip a glass, you're in the right
+          place
+        </p>
+      );
+    }
+  };
+
+  return (
+    <div>
+          <img src={headerImage} alt="whiskey glass" />
+      <div className="userStatus">
+        {currentUser ? (
           <div>
             <p>{currentUser.username}</p>
             <button onClick={handleLogout}>Logout</button>
@@ -48,5 +62,9 @@ export default function Header({currentUser, handleLogout}) {
         ) : (
           <Link to="/login">Login/Register</Link>
         )}
-  </div>;
+      </div>
+      <h1>{pageTitle}</h1>
+      <div>{setP()}</div>
+    </div>
+  );
 }
