@@ -16,7 +16,7 @@ export const createPost = async (postData) => {
 };
 
 export const updatePost = async (id, postData) => {
-  const res = await api.put(`/foods/${id}`, { post: postData });
+  const res = await api.put(`/posts/${id}`, { post: postData });
   return res.data;
 };
 
