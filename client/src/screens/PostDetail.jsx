@@ -3,17 +3,15 @@ import { useParams, Link } from "react-router-dom";
 import { getOnePost } from "../services/posts";
 import "../styles/Screens/PostDetail.css";
 import { TextField, Button } from "@mui/material";
+import Comment from "../components/Comment";
 
-import {
-  createComment,
-  updateComment,
-  deleteComment,
-} from "../services/comments";
+import { createComment } from "../services/comments";
 
 export default function PostDetail({ handlePostDelete, currentUser }) {
   const [post, setPost] = useState(null);
   const [commentSection, setCommentSection] = useState([]);
-  const [commentToggle, setCommentToggle] = useState(false);
+  const [commentToggle, setCommentToggle] = useState(true);
+  const [submitToggle, setSubmitToggle] = useState(true);
   const [comment, setComment] = useState({
     content: "",
     post_id: "",
@@ -29,7 +27,7 @@ export default function PostDetail({ handlePostDelete, currentUser }) {
       setCommentSection(postData.comments);
     };
     fetchPost();
-  }, [id, commentToggle]);
+  }, [id, commentToggle, submitToggle]);
 
   const handleCommentCreate = async (comment) => {
     const newComment = await createComment(id, comment);
@@ -75,16 +73,16 @@ export default function PostDetail({ handlePostDelete, currentUser }) {
         <br />
         <Button type="submit" children="Submit" variant="contained" />
       </form>
-      <ul>
-        {commentSection.map((comment) => {
-          return (
-            <li key={comment.id}>
-              <p>{comment?.content}</p>
-              <p>{comment?.user?.username}</p>
-            </li>
-          );
-        })}
-      </ul>
+      {commentSection?.map((comment) => (
+        <Comment
+          key={comment.id}
+          comment={comment}
+          setCommentSection={setCommentSection}
+          currentUser={currentUser}
+          postid={id}
+          setSubmitToggle={setSubmitToggle}
+        />
+      ))}
       <Link to={`/posts/${id}/edit`}>
         <div className="editicon">
           <svg

@@ -9,6 +9,7 @@ export default function Posts({ setPosts, posts }) {
       setPosts(postList);
     };
     fetchAllPosts();
+    //eslint-disable-next-line
   }, []);
 
   if (!posts) return <h3>Loading...</h3>;
