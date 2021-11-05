@@ -8,6 +8,8 @@ export default function Comment({
   postid,
   setCommentSection,
   setSubmitToggle,
+  checkButtonToggle,
+  setCheckButtonToggle,
 }) {
   const [updateCommentToggle, setUpdateCommentToggle] = useState(true);
   const [newComment, setNewComment] = useState({
@@ -33,6 +35,7 @@ export default function Comment({
       prevState.map((comment) => comment.id === updatedComment.id);
     });
     setSubmitToggle((prevState) => !prevState);
+    setCheckButtonToggle(true);
   };
 
   const handleCommentDelete = async (postid, commentid) => {
@@ -72,7 +75,10 @@ export default function Comment({
             type="button"
             children="Cancel"
             variant="contained"
-            onClick={() => setUpdateCommentToggle(true)}
+            onClick={() => {
+              setUpdateCommentToggle(true);
+              setCheckButtonToggle(true);
+            }}
           />
         </form>
       )}
@@ -82,13 +88,22 @@ export default function Comment({
             type="button"
             children="edit"
             variant="contained"
-            onClick={() => setUpdateCommentToggle(false)}
+            onClick={() => {
+              if (checkButtonToggle) {
+                setUpdateCommentToggle(false);
+                setCheckButtonToggle(false);
+              }
+            }}
           />
           <Button
             type="button"
             children="delete"
             variant="contained"
-            onClick={() => handleCommentDelete(postid, comment.id)}
+            onClick={() => {
+              if (checkButtonToggle) {
+                handleCommentDelete(postid, comment.id);
+              }
+            }}
           />
         </div>
       )}

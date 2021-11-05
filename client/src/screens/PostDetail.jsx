@@ -12,6 +12,7 @@ export default function PostDetail({ handlePostDelete, currentUser }) {
   const [commentSection, setCommentSection] = useState([]);
   const [commentToggle, setCommentToggle] = useState(true);
   const [submitToggle, setSubmitToggle] = useState(true);
+  const [checkButtonToggle, setCheckButtonToggle] = useState(true)
   const [comment, setComment] = useState({
     content: "",
     post_id: "",
@@ -81,6 +82,8 @@ export default function PostDetail({ handlePostDelete, currentUser }) {
           currentUser={currentUser}
           postid={id}
           setSubmitToggle={setSubmitToggle}
+          checkButtonToggle={checkButtonToggle}
+          setCheckButtonToggle={setCheckButtonToggle}
         />
       ))}
       <Link to={`/posts/${id}/edit`}>
