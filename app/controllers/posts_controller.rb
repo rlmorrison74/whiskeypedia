@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all
+    @posts = Post.all.sort { |a, b| a.id - b.id }
     render json: @posts, include: [
       user: { only: ['username'] },
       comments: { only: ['id'] }
