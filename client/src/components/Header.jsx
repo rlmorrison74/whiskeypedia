@@ -21,25 +21,26 @@ export default function Header({ currentUser, handleLogout }) {
     // eslint-disable-next-line
   }, []);
 
-  useEffect(() => {
-    const title = () => {
-      if (location.pathname === "/") {
-        setPageTitle("Welcome to Whiskeypedia");
-      } else if (location.pathname === "/register") {
-        setPageTitle("Sign Up");
-      } else if (location.pathname === "/login") {
-        setPageTitle("Sign In");
-      } else if (location.pathname === "/contact") {
-        setPageTitle("Contact Us");
-      } else if (location.pathname === "/about") {
-        setPageTitle("About Us");
-      } else {
-        setPageTitle("Forum");
-      }
-    };
-    title();
-    // eslint-disable-next-line
-  }, []);
+  const title = () => {
+    console.log(location.pathname);
+    if (location.pathname === "/") {
+      setPageTitle("Welcome to Whiskeypedia");
+    } else if (location.pathname === "/register") {
+      setPageTitle("Sign Up");
+    } else if (location.pathname === "/login") {
+      setPageTitle("Sign In");
+    } else if (location.pathname === "/contact") {
+      setPageTitle("Contact Us");
+    } else if (location.pathname === "/about") {
+      setPageTitle("About Us");
+    } else {
+      setPageTitle("Forum");
+    }
+  };
+    
+    useEffect(() => {
+        title()
+    })
 
   const setP = () => {
     if (location.pathname === "/") {
