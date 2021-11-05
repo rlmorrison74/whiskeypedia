@@ -18,7 +18,6 @@ export default function Header({ currentUser, handleLogout }) {
   };
 
   const title = () => {
-    console.log(location.pathname);
     if (location.pathname === "/") {
       setPageTitle("Welcome to Whiskeypedia");
     } else if (location.pathname === "/register") {

@@ -11,8 +11,6 @@ export default function Posts({ setPosts, posts }) {
     fetchAllPosts();
   }, []);
 
-  console.log(posts);
-
   if (!posts) return <h3>Loading...</h3>;
 
   return (

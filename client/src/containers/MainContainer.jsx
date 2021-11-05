@@ -1,12 +1,6 @@
 import { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 
-// import {
-//   deleteComment,
-//   createComment,
-//   updateComment,
-// } from "../services/comments";
-
 import {
   getAllPosts,
   updatePost,
@@ -20,7 +14,7 @@ import PostEdit from "../screens/PostEdit";
 import PostDetail from "../screens/PostDetail";
 import Home from "../screens/Home";
 
-export default function MainContainer() {
+export default function MainContainer({ currentUser }) {
   const [posts, setPosts] = useState([]);
   const [toggle, setToggle] = useState(false);
   const history = useHistory();
@@ -41,13 +35,13 @@ export default function MainContainer() {
 
   const handlePostUpdate = async (id, formData) => {
     const newPost = await updatePost(id, formData);
-    setPosts((prevState) => 
+    setPosts((prevState) =>
       prevState.map((post) => {
-        return post.id === Number(id) ? newPost : post
-      }))
-      history.push("/posts")
-    }
-  
+        return post.id === Number(id) ? newPost : post;
+      })
+    );
+    history.push("/posts");
+  };
 
   const handlePostDelete = async (id) => {
     await deletePost(id);
@@ -58,13 +52,21 @@ export default function MainContainer() {
   return (
     <Switch>
       <Route path="/posts/:id/edit">
-        <PostEdit setToggle={setToggle} posts={posts} handlePostUpdate={handlePostUpdate} />
+        <PostEdit
+          setToggle={setToggle}
+          posts={posts}
+          handlePostUpdate={handlePostUpdate}
+        />
       </Route>
       <Route path="/posts/new">
         <PostCreate setToggle={setToggle} handlePostCreate={handlePostCreate} />
       </Route>
       <Route path="/posts/:id">
-        <PostDetail posts={posts} handlePostDelete={handlePostDelete} />
+        <PostDetail
+          currentUser={currentUser}
+          posts={posts}
+          handlePostDelete={handlePostDelete}
+        />
       </Route>
       <Route path="/posts">
         <Posts posts={posts} setPosts={setPosts} />

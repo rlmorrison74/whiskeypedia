@@ -4,10 +4,20 @@ import { getOnePost } from "../services/posts";
 import "../styles/Screens/PostDetail.css";
 import { TextField, Button } from "@mui/material";
 
-export default function PostDetail({ handlePostDelete }) {
+import {
+  createComment,
+  updateComment,
+  deleteComment,
+} from "../services/comments";
+
+export default function PostDetail({ handlePostDelete, currentUser }) {
   const [post, setPost] = useState(null);
+  const [commentSection, setCommentSection] = useState([]);
+  const [commentToggle, setCommentToggle] = useState(false);
   const [comment, setComment] = useState({
     content: "",
+    post_id: "",
+    user_id: "",
   });
   const { content } = comment;
   const { id } = useParams();
@@ -16,16 +26,29 @@ export default function PostDetail({ handlePostDelete }) {
     const fetchPost = async () => {
       const postData = await getOnePost(id);
       setPost(postData);
+      setCommentSection(postData.comments);
     };
     fetchPost();
-  }, [id]);
+  }, [id, commentToggle]);
+
+  const handleCommentCreate = async (comment) => {
+    const newComment = await createComment(id, comment);
+    setCommentSection((prevState) => [...prevState, newComment]);
+    setCommentToggle((prevState) => !prevState);
+    setComment({
+      content: "",
+      post_id: "",
+      user_id: "",
+    });
+  };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setPost((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    const { value } = e.target;
+    setComment({
+      content: value,
+      post_id: id,
+      user_id: currentUser.id,
+    });
   };
 
   return (
@@ -33,7 +56,12 @@ export default function PostDetail({ handlePostDelete }) {
       <img src={post?.imgURL} alt={post?.subject} />
       <h3>{post?.subject}</h3>
       <p>{post?.content}</p>
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleCommentCreate(comment);
+        }}
+      >
         <TextField
           id="content"
           type="text"
@@ -48,11 +76,11 @@ export default function PostDetail({ handlePostDelete }) {
         <Button type="submit" children="Submit" variant="contained" />
       </form>
       <ul>
-        {post?.comments.map((comment) => {
+        {commentSection.map((comment) => {
           return (
             <li key={comment.id}>
               <p>{comment?.content}</p>
-              <p>{comment?.user.username}</p>
+              <p>{comment?.user?.username}</p>
             </li>
           );
         })}
