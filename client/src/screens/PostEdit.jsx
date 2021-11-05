@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { useParams, Redirect } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { TextField, Button } from "@mui/material";
+import { getOnePost } from '../services/posts'
 
-export default function PostEdit({ posts, handlePostUpdate }) {
+export default function PostEdit({ posts, handlePostUpdate, setToggle }) {
   const { id } = useParams();
   const [post, setPost] = useState({
     subject: "",
@@ -13,19 +14,17 @@ export default function PostEdit({ posts, handlePostUpdate }) {
   const { subject, content, imgURL } = post;
 
   useEffect(() => {
-    const postData = () => {
-      const content = posts.find((post) => post.id === Number(id));
+    const prefillFormData = async () => {
+      const content = await getOnePost(id);
       setPost({
-        subject: content.subject,
-        content: content.content,
-        imgURL: content.imgURL,
+        subject: content?.subject,
+        content: content?.content,
+        imgURL: content?.imgURL,
       });
     };
-    if (posts.length) {
-      postData();
-    }
+    prefillFormData();
     //eslint-disable-next-line
-  }, [posts, id]);
+  }, [id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -40,12 +39,13 @@ export default function PostEdit({ posts, handlePostUpdate }) {
       onSubmit={(e) => {
         e.preventDefault();
         handlePostUpdate(id, post);
+        setToggle((prevState) => !prevState);
       }}
     >
       <TextField
         id="subject"
         type="text"
-        autofocus
+        autoFocus
         label="Subject"
         value={subject}
         name="subject"
@@ -68,6 +68,8 @@ export default function PostEdit({ posts, handlePostUpdate }) {
         value={content}
         name="content"
         onChange={handleChange}
+        multiline={true}
+        rows="10"
       />
       <br />
       <Button type="submit" children="Update" variant="contained" />

@@ -2,34 +2,90 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getOnePost } from "../services/posts";
 import "../styles/Screens/PostDetail.css";
+import { TextField, Button } from "@mui/material";
+import Comment from "../components/Comment";
 
-export default function PostDetail({ handlePostDelete }) {
+import { createComment } from "../services/comments";
+
+export default function PostDetail({ handlePostDelete, currentUser }) {
   const [post, setPost] = useState(null);
+  const [commentSection, setCommentSection] = useState([]);
+  const [commentToggle, setCommentToggle] = useState(true);
+  const [submitToggle, setSubmitToggle] = useState(true);
+  const [checkButtonToggle, setCheckButtonToggle] = useState(true)
+  const [comment, setComment] = useState({
+    content: "",
+    post_id: "",
+    user_id: "",
+  });
+  const { content } = comment;
   const { id } = useParams();
 
   useEffect(() => {
     const fetchPost = async () => {
       const postData = await getOnePost(id);
       setPost(postData);
+      setCommentSection(postData.comments);
     };
     fetchPost();
-  }, [id]);
+  }, [id, commentToggle, submitToggle]);
+
+  const handleCommentCreate = async (comment) => {
+    const newComment = await createComment(id, comment);
+    setCommentSection((prevState) => [...prevState, newComment]);
+    setCommentToggle((prevState) => !prevState);
+    setComment({
+      content: "",
+      post_id: "",
+      user_id: "",
+    });
+  };
+
+  const handleChange = (e) => {
+    const { value } = e.target;
+    setComment({
+      content: value,
+      post_id: id,
+      user_id: currentUser.id,
+    });
+  };
 
   return (
     <div>
       <img src={post?.imgURL} alt={post?.subject} />
       <h3>{post?.subject}</h3>
       <p>{post?.content}</p>
-      <ul>
-        {post?.comments.map((comment) => {
-          return (
-            <li key={comment.id}>
-              <p>{comment?.content}</p>
-              <p>{comment?.user.username}</p>
-            </li>
-          );
-        })}
-      </ul>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleCommentCreate(comment);
+        }}
+      >
+        <TextField
+          id="content"
+          type="text"
+          label="Leave a comment"
+          value={content}
+          name="content"
+          onChange={handleChange}
+          multiline={true}
+          rows="5"
+        />
+        <br />
+        <Button type="submit" children="Submit" variant="contained" />
+      </form>
+      {commentSection?.map((comment) => (
+        <Comment
+          key={comment.id}
+          comment={comment}
+          setCommentSection={setCommentSection}
+          currentUser={currentUser}
+          postid={id}
+          setSubmitToggle={setSubmitToggle}
+          checkButtonToggle={checkButtonToggle}
+          setCheckButtonToggle={setCheckButtonToggle}
+        />
+      ))}
       <Link to={`/posts/${id}/edit`}>
         <div className="editicon">
           <svg

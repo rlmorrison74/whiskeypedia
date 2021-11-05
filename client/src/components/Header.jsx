@@ -9,37 +9,34 @@ export default function Header({ currentUser, handleLogout }) {
   const [headerImage, setHeaderImage] = useState("");
   const [pageTitle, setPageTitle] = useState("");
 
-  useEffect(() => {
-    const image = () => {
-      if (location.pathname === "/") {
-        setHeaderImage(landingHeader);
-      } else {
-        setHeaderImage(otherHeader);
-      }
-    };
-    image();
-    // eslint-disable-next-line
-  }, []);
+  const image = () => {
+    if (location.pathname === "/") {
+      setHeaderImage(landingHeader);
+    } else {
+      setHeaderImage(otherHeader);
+    }
+  };
+
+  const title = () => {
+    if (location.pathname === "/") {
+      setPageTitle("Welcome to Whiskeypedia");
+    } else if (location.pathname === "/register") {
+      setPageTitle("Sign Up");
+    } else if (location.pathname === "/login") {
+      setPageTitle("Sign In");
+    } else if (location.pathname === "/contact") {
+      setPageTitle("Contact Us");
+    } else if (location.pathname === "/about") {
+      setPageTitle("About Us");
+    } else {
+      setPageTitle("Forum");
+    }
+  };
 
   useEffect(() => {
-    const title = () => {
-      if (location.pathname === "/") {
-        setPageTitle("Welcome to Whiskeypedia");
-      } else if (location.pathname === "/register") {
-        setPageTitle("Sign Up");
-      } else if (location.pathname === "/login") {
-        setPageTitle("Sign In");
-      } else if (location.pathname === "/contact") {
-        setPageTitle("Contact Us");
-      } else if (location.pathname === "/about") {
-        setPageTitle("About Us");
-      } else {
-        setPageTitle("Forum");
-      }
-    };
     title();
-    // eslint-disable-next-line
-  }, []);
+    image();
+  });
 
   const setP = () => {
     if (location.pathname === "/") {
