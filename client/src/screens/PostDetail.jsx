@@ -2,9 +2,14 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getOnePost } from "../services/posts";
 import "../styles/Screens/PostDetail.css";
+import { TextField, Button } from "@mui/material";
 
 export default function PostDetail({ handlePostDelete }) {
   const [post, setPost] = useState(null);
+  const [comment, setComment] = useState({
+    content: "",
+  });
+  const { content } = comment;
   const { id } = useParams();
 
   useEffect(() => {
@@ -15,11 +20,33 @@ export default function PostDetail({ handlePostDelete }) {
     fetchPost();
   }, [id]);
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setPost((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
   return (
     <div>
       <img src={post?.imgURL} alt={post?.subject} />
       <h3>{post?.subject}</h3>
       <p>{post?.content}</p>
+      <form>
+        <TextField
+          id="content"
+          type="text"
+          label="Leave a comment"
+          value={content}
+          name="content"
+          onChange={handleChange}
+          multiline={true}
+          rows="5"
+        />
+        <br />
+        <Button type="submit" children="Submit" variant="contained" />
+      </form>
       <ul>
         {post?.comments.map((comment) => {
           return (
