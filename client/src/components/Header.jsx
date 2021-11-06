@@ -49,7 +49,7 @@ export default function Header({ currentUser, handleLogout }) {
             <p onClick={handleLogout}>Logout</p>
           </div>
         ) : (
-          <Link to="/login">Login/Register</Link>
+          <Link className="user link" to="/login">Login/Register</Link>
         )}
       </div>
       <div className={location.pathname === '/' ? "title" : "titleh1div"}>

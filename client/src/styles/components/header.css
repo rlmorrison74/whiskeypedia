@@ -1,5 +1,6 @@
 * {
   font-family: "Merriweather", serif;
+  color: white;
 }
 
 .title {
@@ -61,6 +62,7 @@ img {
   padding: 0 16px 0 16px;
   border-radius: 40px;
   z-index: 2;
+  margin-right: 10px;
 }
 
 .user p {
@@ -70,6 +72,17 @@ img {
 }
 
 .user p:hover {
+  transform: scale(1.1);
+}
+
+.link {
+  padding: 0 8px;
+  cursor: pointer;
+  transition: 0.5s;
+  text-decoration: none;
+}
+
+.link:hover {
   transform: scale(1.1);
 }
 
@@ -109,12 +122,12 @@ img {
     font-size: 72px;
   }
 
-  .titleh1div{
-      top:20vh;
-      left: 10vw;
+  .titleh1div {
+    top: 20vh;
+    left: 10vw;
   }
 
-  .titleh1{
-      font-size: 96px;
+  .titleh1 {
+    font-size: 96px;
   }
 }
