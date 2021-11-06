@@ -6,11 +6,17 @@
   line-height: 30px;
 }
 
-.whiskeyprocess div {
+.intro,
+.malting,
+.mashing,
+.fermentation,
+.distillation,
+.aging,
+.bottling {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px solid yellow;
+  width: 100vw;
 }
 
 .whiskeyprocess img {
@@ -22,23 +28,69 @@ h2 {
   margin-bottom: 0px;
 }
 
+.distillation p {
+  margin-left: 40px;
+}
+
+@media (min-width: 640px) {
+  .distillation p {
+    margin-left: 60px;
+  }
+}
+
 @media (min-width: 1024px) {
   .whiskeyprocess {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
   }
 
+  .distillation p {
+    margin-left: 0;
+  }
+
+  .imgcontainer {
+    display: flex;
+    flex-direction: column;
+  }
 
   .whiskeyprocess img {
-    width: 40vw;
+    width: 45vw;
     margin: 5vh;
   }
 
-  .card{
-      display:flex;
-      border: 2px solid blue;
+  .card {
+    display: flex;
+    width: 100vw;
+    justify-content: space-evenly;
+    align-items: baseline;
   }
 
-  .whiskeyprocess p {
+  .intro p,
+  .malting p,
+  .mashing p,
+  .fermentation p,
+  .distillation p,
+  .aging p,
+  .bottling p {
+    width: 20vw;
+    padding: 40px 50px 40px 50px;
+  }
+
+  .intro,
+  .card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+
+  .malting {
+    display: flex;
+    flex-direction: column;
   }
 }

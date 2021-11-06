@@ -23,6 +23,7 @@ export default function Home() {
       <div className="malting">
         <h2>Malting</h2>
         <div className="card">
+          <img src={malting} alt="malting" />
           <p>
             What starts out as raw grains, gets moistened, which allows it to
             germinate. It’s then heated to stop the germination process and
@@ -30,7 +31,6 @@ export default function Home() {
             types of whiskey, but most American whiskey typically uses rye and
             corn.
           </p>
-          <img src={malting} alt="malting" />
         </div>
       </div>
       <div>
@@ -51,12 +51,12 @@ export default function Home() {
       <div className="fermentation">
         <h2>Fermentation</h2>
         <div className="card">
+          <img src={fermentation} alt="fermentation" />
           <p>
             The alcohol begins to form. The mash is combined with yeast, which
             feeds on the sugars in the mash, converting the sugar into alcohol.
             This usually takes a few days, give or take.{" "}
           </p>
-          <img src={fermentation} alt="fermentation" />
         </div>
       </div>
       <div className="distillation">
@@ -75,13 +75,16 @@ export default function Home() {
             leaving more pure alcohol behind. This is how we achieve a higher
             proof whiskey.
           </p>
-          <img src={distillation} alt="drawing of still" />
-          <img src={distillation2} alt="still" />
+          <div className="imgcontainer">
+            <img src={distillation} alt="drawing of still" />
+            <img src={distillation2} alt="still" />
+          </div>
         </div>
       </div>
       <div className="aging">
         <h2>Aging</h2>
         <div className="card">
+          <img src={aging} alt="aging whiskey" />
           <p>
             Nearly all whiskeys are aged in barrels, mostly oak. Bourbon, Rye,
             and some other American whiskeys are aged in new charred oak
@@ -90,7 +93,6 @@ export default function Home() {
             are a lot of requirements that go into classifying what type of
             whiskey you’re producing, but these are the barebones basics.
           </p>
-          <img src={aging} alt="aging whiskey" />
         </div>
       </div>
       <div className="bottling">
