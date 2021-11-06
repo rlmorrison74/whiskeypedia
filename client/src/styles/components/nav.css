@@ -1,0 +1,18 @@
+.nav {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgba(0, 0, 0, 0.637);
+  padding: 20px 0;
+  margin-top: -10px;
+}
+
+.navlink {
+  text-decoration: none;
+  color: white;
+  transition: 0.5s;
+  font-size: 18px;
+}
+
+.navlink:hover {
+  transform: scale(1.1);
+}

@@ -26,9 +26,9 @@ export default function Header({ currentUser, handleLogout }) {
     } else if (location.pathname === "/login") {
       setPageTitle("Sign In");
     } else if (location.pathname === "/contact") {
-      setPageTitle("Contact Us");
+      setPageTitle("Contact");
     } else if (location.pathname === "/about") {
-      setPageTitle("About Us");
+      setPageTitle("About");
     } else {
       setPageTitle("Forum");
     }
@@ -38,17 +38,6 @@ export default function Header({ currentUser, handleLogout }) {
     title();
     image();
   });
-
-  const setP = () => {
-    if (location.pathname === "/") {
-      return (
-        <p>
-          If you're here because you love to sip a glass, you're in the right
-          place
-        </p>
-      );
-    }
-  };
 
   return (
     <div className="header">
@@ -63,8 +52,9 @@ export default function Header({ currentUser, handleLogout }) {
           <Link to="/login">Login/Register</Link>
         )}
       </div>
-      <h1>{pageTitle}</h1>
-      <div>{setP()}</div>
+      <div className={location.pathname === '/' ? "title" : "titleh1div"}>
+        <h1 className={location.pathname === '/' ? "" : "titleh1"}>{pageTitle}</h1>
+      </div>
     </div>
   );
 }
