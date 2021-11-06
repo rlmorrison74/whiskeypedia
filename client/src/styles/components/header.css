@@ -1,0 +1,36 @@
+* {
+  font-family: "Merriweather", serif;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+img {
+  width: 100vw;
+  max-height: 100vh;
+}
+
+.header {
+  width: 100vw;
+}
+
+.user {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.637);
+  color:white;
+  padding: 0 16px 0 16px;
+}
+
+.user p{
+    padding: 0 8px 0 8px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.user p:hover{
+    transform: scale(1.1) ;
+}

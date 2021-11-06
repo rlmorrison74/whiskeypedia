@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import landingHeader from "../assets/images/whiskeybackground1.jpg";
 import otherHeader from "../assets/images/whiskeybackground2.jpg";
+import "../styles/components/header.css";
 
 export default function Header({ currentUser, handleLogout }) {
   let location = useLocation();
@@ -50,13 +51,13 @@ export default function Header({ currentUser, handleLogout }) {
   };
 
   return (
-    <div>
+    <div className="header">
       <img src={headerImage} alt="whiskey glass" />
       <div className="userStatus">
         {currentUser ? (
-          <div>
-            <p>{currentUser.username}</p>
-            <button onClick={handleLogout}>Logout</button>
+          <div className="user">
+            <p>Welcome, {currentUser.username}</p>
+            <p onClick={handleLogout}>Logout</p>
           </div>
         ) : (
           <Link to="/login">Login/Register</Link>
