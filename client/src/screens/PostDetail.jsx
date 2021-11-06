@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getOnePost } from "../services/posts";
-import "../styles/Screens/PostDetail.css";
+import "../styles/Screens/postdetail.css";
 import { TextField, Button } from "@mui/material";
 import Comment from "../components/Comment";
 
@@ -51,11 +51,17 @@ export default function PostDetail({ handlePostDelete, currentUser }) {
   };
 
   return (
-    <div>
-      <img src={post?.imgURL} alt={post?.subject} />
-      <h3>{post?.subject}</h3>
-      <p>{post?.content}</p>
+    <div className="postdetail">
+      <div className="onepost">
+        <img src={post?.imgURL} alt={post?.subject} />
+        <div className="posttitle">
+          <h1>{post?.subject}</h1>
+          <h2>By {post?.user.username}</h2>
+        </div>
+        <p>{post?.content}</p>
+      </div>
       <form
+        className="commentform"
         onSubmit={(e) => {
           e.preventDefault();
           handleCommentCreate(comment);
@@ -70,9 +76,9 @@ export default function PostDetail({ handlePostDelete, currentUser }) {
           onChange={handleChange}
           multiline={true}
           rows="5"
+          className="commentinput"
         />
-        <br />
-        <Button type="submit" children="Submit" variant="contained" />
+        <Button type="submit" className="submitcomment" children="Submit" variant="contained" />
       </form>
       {commentSection?.map((comment) => (
         <Comment

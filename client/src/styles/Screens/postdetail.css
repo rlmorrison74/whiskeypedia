@@ -1,0 +1,53 @@
+.postdetail {
+  width: 100vw;
+  height: screen;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editicon,
+.deleteicon {
+  width: 25px;
+  height: 25px;
+  /* color:white; */
+}
+
+.commentform {
+  background-color: rgb(255, 255, 255);
+  width: 50%;
+  padding: 20px;
+  border-radius: 20px;
+
+}
+
+.onepost {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.onepost img {
+  width: 80vw;
+}
+
+.posttitle {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  margin-top: -10px;
+}
+
+.onepost p {
+  background-color: rgba(0, 0, 0, 0.637);
+  width: 75vw;
+  padding: 20px 40px 20px 40px;
+  margin: 20px  ;
+
+}
+
+.submitcomment{
+  margin-top: 50px;
+}
