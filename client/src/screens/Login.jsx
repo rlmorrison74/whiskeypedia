@@ -20,6 +20,7 @@ export default function Login({ handleLogin }) {
 
   return (
     <div className="login">
+      <h1>Welcome Back</h1>
       <form
         className="loginform"
         onSubmit={(e) => {
@@ -36,7 +37,6 @@ export default function Login({ handleLogin }) {
           name="username"
           onChange={handleChange}
         />
-        <br />
         <TextField
           id="password"
           type="password"
@@ -45,7 +45,6 @@ export default function Login({ handleLogin }) {
           name="password"
           onChange={handleChange}
         />
-        <br />
         <Button type="submit" children="Submit" variant="contained" />
         <p>
           {" "}
