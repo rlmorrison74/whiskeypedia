@@ -24,17 +24,18 @@
   text-decoration: none;
 }
 
-.new{
-    margin: 20px;
+.new {
+  margin: 20px;
 }
 
-.author, .commentcount{
-    font-size: 12px;
-    user-select: none;
+.author,
+.commentcount {
+  font-size: 12px;
+  user-select: none;
 }
 
 .linkcontainer {
-text-align: left;
+  text-align: left;
 }
 
 .postlink {
