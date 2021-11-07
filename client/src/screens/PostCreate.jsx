@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { TextField, Button } from "@mui/material";
+import "../styles/Screens/postcreate.css";
 
 export default function PostCreate({ handlePostCreate, setToggle }) {
   const [post, setPost] = useState({
@@ -19,44 +20,45 @@ export default function PostCreate({ handlePostCreate, setToggle }) {
   };
 
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        handlePostCreate(post);
-        setToggle((prevState) => !prevState);
-      }}
-    >
-      <TextField
-        id="subject"
-        type="text"
-        autoFocus
-        label="Subject"
-        value={subject}
-        name="subject"
-        onChange={handleChange}
-      />
-      <br />
-      <TextField
-        id="imgURL"
-        type="text"
-        label="Image URL"
-        value={imgURL}
-        name="imgURL"
-        onChange={handleChange}
-      />
-      <br />
-      <TextField
-        id="content"
-        type="text"
-        label="Share your story!"
-        value={content}
-        name="content"
-        multiline={true}
-        rows="10"
-        onChange={handleChange}
-      />
-      <br />
-      <Button type="submit" children="Submit" variant="contained" />
-    </form>
+    <div className="postcreate">
+      <h1>Create a Post</h1>
+      <form
+        className="postcreateform"
+        onSubmit={(e) => {
+          e.preventDefault();
+          handlePostCreate(post);
+          setToggle((prevState) => !prevState);
+        }}
+      >
+        <TextField
+          id="subject"
+          type="text"
+          autoFocus
+          label="Subject"
+          value={subject}
+          name="subject"
+          onChange={handleChange}
+        />
+        <TextField
+          id="imgURL"
+          type="text"
+          label="Image URL"
+          value={imgURL}
+          name="imgURL"
+          onChange={handleChange}
+        />
+        <TextField
+          id="content"
+          type="text"
+          label="Share your story!"
+          value={content}
+          name="content"
+          multiline={true}
+          rows="10"
+          onChange={handleChange}
+        />
+        <Button type="submit" children="Submit" variant="contained" />
+      </form>
+    </div>
   );
 }
