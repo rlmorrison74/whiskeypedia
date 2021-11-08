@@ -11,16 +11,16 @@ export default function Footer() {
         <img src={siteLogo} alt="whiskeypedia logo" />
       </div>
       <div className="icons">
-        <Link to="https://www.linkedin.com/in/rlmorrison74/">
+        <a href="https://www.linkedin.com/in/rlmorrison74/">
           <img
             className="linkedin"
             src={linkedin}
             alt="link to raymond morrison's LinkedIn profile"
           />
-        </Link>
-        <Link to="https://github.com/rlmorrison74/whiskeypedia">
+        </a>
+        <a href="https://github.com/rlmorrison74/whiskeypedia">
           <img className="github" src={logo} alt="Link to github repo" />
-        </Link>
+        </a>
       </div>
     </div>
   );
