@@ -37,6 +37,7 @@ export default function Login({
         }}
       >
         <TextField
+          required
           id="username"
           type="text"
           autoFocus
@@ -48,6 +49,7 @@ export default function Login({
           onChange={handleChange}
         />
         <TextField
+          required
           id="password"
           type="password"
           label="Password"

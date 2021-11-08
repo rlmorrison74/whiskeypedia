@@ -114,6 +114,7 @@ export default function PostDetail({ handlePostDelete, currentUser }) {
         }}
       >
         <TextField
+          required
           id="content"
           type="text"
           label="Leave a comment"

@@ -38,9 +38,11 @@ export default function PostCreate({ handlePostCreate, setToggle }) {
           value={subject}
           name="subject"
           margin="normal"
+          required
           onChange={handleChange}
         />
         <TextField
+          required
           id="imgURL"
           type="text"
           margin="normal"
@@ -50,6 +52,7 @@ export default function PostCreate({ handlePostCreate, setToggle }) {
           onChange={handleChange}
         />
         <TextField
+          required
           id="content"
           type="text"
           margin="normal"

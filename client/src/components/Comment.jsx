@@ -130,11 +130,18 @@ export default function Comment({
             multiline={true}
             rows="5"
           />
-          <Button type="submit" children="Update" variant="contained" />
+          <Button
+            type="submit"
+            children="Update"
+            variant="contained"
+            color="success"
+            sx={{ my: 2 }}
+          />
           <Button
             type="button"
             children="Cancel"
             variant="contained"
+            color="error"
             onClick={() => {
               setUpdateCommentToggle(true);
               setCheckButtonToggle(true);

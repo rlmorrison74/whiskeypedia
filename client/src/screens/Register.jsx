@@ -21,7 +21,7 @@ export default function Register({
 
   const handleChange = (e) => {
     setUserError(false);
-    setEmailError(false)
+    setEmailError(false);
     setPasswordError(false);
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -41,6 +41,7 @@ export default function Register({
         }}
       >
         <TextField
+          required
           id="username"
           type="text"
           autoFocus
@@ -52,8 +53,8 @@ export default function Register({
           margin="normal"
           helperText={userError && "Please enter a valid username"}
         />
-        <br />
         <TextField
+          required
           id="email"
           type="text"
           label="Email Address"
@@ -64,8 +65,8 @@ export default function Register({
           onChange={handleChange}
           helperText={emailError && "Please enter a valid email"}
         />
-        <br />
         <TextField
+          required
           id="password"
           type="password"
           label="Password"
@@ -78,7 +79,6 @@ export default function Register({
             passwordError && "Password is too short(minimum 6 characters)"
           }
         />
-        <br />
         <Button type="submit" children="Submit" variant="contained" />
       </form>
     </div>
