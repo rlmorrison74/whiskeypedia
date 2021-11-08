@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import logo from "../assets/images/GitHub-Mark-Light-32px.png";
 import linkedin from "../assets/images/LI-Logo.png";
 import "../styles/components/footer.css";
