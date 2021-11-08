@@ -32,7 +32,6 @@ function App() {
 
   const handleLogin = async (formData) => {
     const userData = await loginUser(formData);
-    console.log(userData)
     if (userData.username) {
       setCurrentUser(userData);
       history.push("/");

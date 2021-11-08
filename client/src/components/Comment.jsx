@@ -30,7 +30,6 @@ export default function Comment({
   };
 
   const handleCommentUpdate = async (comment, newComment) => {
-    console.log(comment);
     const updatedComment = await updateComment(postid, comment, newComment);
     setCommentSection((prevState) => {
       prevState.map((comment) => comment.id === updatedComment.id);
