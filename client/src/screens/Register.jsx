@@ -2,7 +2,15 @@ import { useState } from "react";
 import { TextField, Button } from "@mui/material";
 import "../styles/Screens/register.css";
 
-export default function Register({ handleRegister }) {
+export default function Register({
+  handleRegister,
+  userError,
+  passwordError,
+  emailError,
+  setUserError,
+  setPasswordError,
+  setEmailError,
+}) {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -12,6 +20,9 @@ export default function Register({ handleRegister }) {
   const { username, email, password } = formData;
 
   const handleChange = (e) => {
+    setUserError(false);
+    setEmailError(false)
+    setPasswordError(false);
     const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
@@ -37,6 +48,9 @@ export default function Register({ handleRegister }) {
           value={username}
           name="username"
           onChange={handleChange}
+          error={userError}
+          margin="normal"
+          helperText={userError && "Please enter a valid username"}
         />
         <br />
         <TextField
@@ -44,17 +58,25 @@ export default function Register({ handleRegister }) {
           type="text"
           label="Email Address"
           value={email}
+          margin="normal"
           name="email"
+          error={emailError}
           onChange={handleChange}
+          helperText={emailError && "Please enter a valid email"}
         />
         <br />
         <TextField
           id="password"
           type="password"
           label="Password"
+          margin="normal"
           value={password}
           name="password"
+          error={passwordError}
           onChange={handleChange}
+          helperText={
+            passwordError && "Password is too short(minimum 6 characters)"
+          }
         />
         <br />
         <Button type="submit" children="Submit" variant="contained" />

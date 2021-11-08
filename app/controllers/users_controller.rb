@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   # POST /users
   def create
     @user = User.new(user_params)
@@ -11,7 +10,10 @@ class UsersController < ApplicationController
         token: @token
       }, status: :created
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: {
+        error: @user.errors,
+        message: 'Error signing up, please double check your information and try again'
+      }, status: :unprocessable_entity
     end
   end
 

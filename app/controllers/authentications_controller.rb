@@ -11,7 +11,10 @@ class AuthenticationsController < ApplicationController
         token: @token
       }, status: :ok
     else
-      render json: { errors: 'unauthorized' }, status: :unauthorized
+      render json: {
+        error: @user.errors,
+        message: 'Invalid email or password'
+      }, status: :unprocessable_entity
     end
   end
 

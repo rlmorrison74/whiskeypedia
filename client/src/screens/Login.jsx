@@ -3,7 +3,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Screens/login.css";
 
-export default function Login({ handleLogin }) {
+export default function Login({
+  handleLogin,
+  userError,
+  passwordError,
+  setUserError,
+  setPasswordError,
+}) {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -11,6 +17,8 @@ export default function Login({ handleLogin }) {
   const { username, password } = formData;
 
   const handleChange = (e) => {
+    setUserError(false);
+    setPasswordError(false);
     const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
@@ -35,6 +43,8 @@ export default function Login({ handleLogin }) {
           label="Username"
           value={username}
           name="username"
+          margin="normal"
+          error={userError || passwordError}
           onChange={handleChange}
         />
         <TextField
@@ -42,13 +52,22 @@ export default function Login({ handleLogin }) {
           type="password"
           label="Password"
           value={password}
+          margin="normal"
           name="password"
           onChange={handleChange}
+          error={userError || passwordError}
+          helperText={
+            userError || passwordError ? "Invalid username or password" : null
+          }
         />
         <Button type="submit" children="Submit" variant="contained" />
         <p>
           {" "}
-          Don't have an account? Create one <Link className="registerlink" to="/register">here</Link>.
+          Don't have an account? Create one{" "}
+          <Link className="registerlink" to="/register">
+            here
+          </Link>
+          .
         </p>
       </form>
     </div>
