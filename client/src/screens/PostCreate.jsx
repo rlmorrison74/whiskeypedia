@@ -37,11 +37,13 @@ export default function PostCreate({ handlePostCreate, setToggle }) {
           label="Subject"
           value={subject}
           name="subject"
+          margin="normal"
           onChange={handleChange}
         />
         <TextField
           id="imgURL"
           type="text"
+          margin="normal"
           label="Image URL"
           value={imgURL}
           name="imgURL"
@@ -50,6 +52,7 @@ export default function PostCreate({ handlePostCreate, setToggle }) {
         <TextField
           id="content"
           type="text"
+          margin="normal"
           label="Share your story!"
           value={content}
           name="content"

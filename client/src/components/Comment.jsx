@@ -111,7 +111,8 @@ export default function Comment({
           )}
         </div>
       ) : (
-        <form className="commenteditform"
+        <form
+          className="commenteditform"
           onSubmit={(e) => {
             e.preventDefault();
             handleCommentUpdate(comment?.id, newComment);
@@ -120,7 +121,9 @@ export default function Comment({
           <TextField
             id="content"
             type="text"
+            autoFocus
             label="Edit Your Comment"
+            margin="normal"
             value={content}
             name="content"
             onChange={handleChange}

@@ -119,6 +119,7 @@ export default function PostDetail({ handlePostDelete, currentUser }) {
           label="Leave a comment"
           value={content}
           name="content"
+          margin="normal"
           onChange={handleChange}
           multiline={true}
           rows="5"

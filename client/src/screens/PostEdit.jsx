@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { TextField, Button } from "@mui/material";
 import { getOnePost } from "../services/posts";
-import '../styles/Screens/postedit.css'
+import { useHistory } from "react-router";
+import "../styles/Screens/postedit.css";
 
 export default function PostEdit({ posts, handlePostUpdate, setToggle }) {
   const { id } = useParams();
+  const history = useHistory();
   const [post, setPost] = useState({
     subject: "",
     content: "",
@@ -53,30 +55,43 @@ export default function PostEdit({ posts, handlePostUpdate, setToggle }) {
           label="Subject"
           value={subject}
           name="subject"
+          margin="normal"
           onChange={handleChange}
         />
-        <br />
         <TextField
           id="imgURL"
+          margin="normal"
           type="text"
           label="Image URL"
           value={imgURL}
           name="imgURL"
           onChange={handleChange}
         />
-        <br />
         <TextField
           id="content"
+          margin="normal"
           type="text"
-          label="I'm sure your thoughts are super relevant, why don't you go ahead and share them?"
+          label="Edit your post"
           value={content}
           name="content"
           onChange={handleChange}
           multiline={true}
           rows="10"
         />
-        <br />
-        <Button type="submit" children="Update" variant="contained" />
+        <Button
+          type="submit"
+          children="Update"
+          variant="contained"
+          color="success"
+          sx={{ my: 2 }}
+        />
+        <Button
+          type="button"
+          children="Cancel"
+          variant="contained"
+          color="error"
+          onClick={() => history.push(`/posts/${id}`)}
+        />
       </form>
     </div>
   );

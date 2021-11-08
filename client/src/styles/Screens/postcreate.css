@@ -13,7 +13,6 @@
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  height: 50vh;
+  height: fit-content;
   max-width: 450px;
 }
