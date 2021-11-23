@@ -69,31 +69,31 @@ _MVP for this project is full CRUD on both front and back end with a minimum of 
 
 ## Here is the link to the full figma to explore: https://www.figma.com/file/rBj2Zgrj3E0U25hDQ5CR5t/Whiskeypedia?node-id=0%3A1
 
-![Home](https://github.com/rlmorrison74/whiskeypedia/blob/main/assets/mockups/home.png)
+![Home](https://github.com/rlmorrison74/whiskeypedia/blob/main/client/src/assets/mockups/home.png)
 
 - Home Page
 
-![Posts.jsx](https://github.com/rlmorrison74/whiskeypedia/blob/main/assets/mockups/posts.png)
+![Posts.jsx](https://github.com/rlmorrison74/whiskeypedia/blob/main/client/src/assets/mockups/posts.png)
 
 - Posts Page
 
-![PostDetail.jsx](https://github.com/rlmorrison74/whiskeypedia/blob/main/assets/mockups/post_detail.png)
+![PostDetail.jsx](https://github.com/rlmorrison74/whiskeypedia/blob/main/client/src/assets/mockups/post_detail.png)
 
 - Post Detail Page
 
-![PostCreate.jsx](https://github.com/rlmorrison74/whiskeypedia/blob/main/assets/mockups/create_post.png)
+![PostCreate.jsx](https://github.com/rlmorrison74/whiskeypedia/blob/main/client/src/assets/mockups/create_post.png)
 
 - Post Create/Edit Form
 
-![Register.jsx](https://github.com/rlmorrison74/whiskeypedia/blob/main/assets/mockups/sign_up.png)
+![Register.jsx](https://github.com/rlmorrison74/whiskeypedia/blob/main/client/src/assets/mockups/sign_up.png)
 
 - Register Form
 
-![About.jsx](https://github.com/rlmorrison74/whiskeypedia/blob/main/assets/mockups/about.png)
+![About.jsx](https://github.com/rlmorrison74/whiskeypedia/blob/main/client/src/assets/mockups/about.png)
 
 - About Page
 
-![Contact.jsx](https://github.com/rlmorrison74/whiskeypedia/blob/main/assets/mockups/contact.png)
+![Contact.jsx](https://github.com/rlmorrison74/whiskeypedia/blob/main/client/src/assets/mockups/contact.png)
 
 - Contact Page
 
