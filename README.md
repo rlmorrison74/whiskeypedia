@@ -118,7 +118,6 @@ src
       |__ auth.js
       |__ posts.js
       |__ comments.js
-      |__ users.js
 |__layouts/
       |__ Layout.jsx
 |__screens/
@@ -133,7 +132,6 @@ src
       |__ PostCreate.jsx
 |__containers/
       |__ MainContainer.jsx
-      |__ PostContainer.jsx
 
 ```
 
@@ -141,25 +139,25 @@ src
 
 | Task                | Priority | Estimated Time | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | 
-| Lay out state in app.js for child components   |    H     |     3 hrs      |          |   
-| Set up layout |    H     |     1 hr      |          |    
-| Build login/register forms |    H     |     3 hrs      |          |     
-| Build contact form |    L     |     3 hrs      |          |     
-| Build about screen |    L     |     1 hr     |          |     
-| Build home screen |    L     |     2 hrs      |          |     
-| Set up MainContainer.jsx state |    H     |     2 hrs      |          |     
-| Build Edit |    H     |     3 hrs      |          |     
-| Build Create |    H     |     3 hrs      |          |     
-| Build PostDetail |    H     |     3 hrs      |          |     
-| Build Posts |    H     |     3 hrs      |          |     
-| Build back end database |    H     |     3 hrs      |          |     
-| Set up back end full CRUD |    H     |     3 hrs      |          |     
-| Build Comment functionality |    H     |     5 hrs      |          |
-| Set up services folder |    H     |     1 hr      |          |
-| Basic Styling of all screens |    H     |     15 hrs      |          |
-| Polishing up styling |    H     |     6 hrs      |          |
-| CSS Animations |    M     |     6 hrs      |          |
-| TOTAL               |          |     66 hrs      |          |     
+| Lay out state in app.js for child components   |    H     |     3 hrs      | 3 hrs         |   
+| Set up layout |    H     |     1 hr      |        1 hr  |    
+| Build login/register forms |    H     |     3 hrs      | 2 hrs         |     
+| Build contact form |    L     |     3 hrs      |       1 hr   |     
+| Build about screen |    L     |     1 hr     |         1 hr |     
+| Build home screen |    L     |     2 hrs      |        3 hrs  |     
+| Set up MainContainer.jsx state |    H     |     2 hrs      | 2 hrs         |     
+| Build Edit |    H     |     3 hrs      |        3 hrs  |     
+| Build Create |    H     |     3 hrs      |         3 hrs |     
+| Build PostDetail |    H     |     3 hrs      |         3 hrs |     
+| Build Posts |    H     |     3 hrs      |         3 hrs |     
+| Build back end database |    H     |     3 hrs      |   4 hrs       |     
+| Set up back end full CRUD |    H     |     3 hrs      |      3 hrs    |     
+| Build Comment functionality |    H     |     5 hrs      |         6 hrs |
+| Set up services folder |    H     |     1 hr      |         1 hr |
+| Basic Styling of all screens |    H     |     15 hrs      |     8 hrs     |
+| Polishing up styling |    H     |     6 hrs      |         4 hrs |
+| CSS Animations |    M     |     6 hrs      |          incomplete|
+| TOTAL               |          |     66 hrs      |        51 hrs  |     
 
 <br>
 
